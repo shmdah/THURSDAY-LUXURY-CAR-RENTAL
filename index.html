@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SYDNEYLUXURYHIRE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<style>
+/* ============ RESET & BASE ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+/* ============ LOADER ============ */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.3s;
+}
+
+.loader-ring {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #222;
+  border-top: 3px solid #D4AF37; /* GOLD ACCENT */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============ HEADER ============ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #D4AF37; /* GOLD ACCENT */
+}
+
+/* ============ MOBILE NAVIGATION ============ */
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-direction: row; 
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: block;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  order: -1; 
+}
+
+.header-right-tools {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: -100%; 
+  width: 50%;   
+  height: 100vh;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 80px 20px;
+  gap: 20px;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2000;
+  border-right: 1px solid #222;
+}
+
+nav.active {
+  left: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  padding: 10px 0;
+  width: 100%;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+}
+
+nav a:hover, nav a.active {
+  opacity: 1;
+  color: #D4AF37; /* GOLD ACCENT */
+}
+
+/* ============ CART ICON ============ */
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1); /* GOLD ACCENT TRANSPARENT */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.cart-icon.glow {
+  animation: glow 1.5s ease;
+}
+
+@keyframes glow {
+  0% { transform: scale(1); box-shadow: 0 0 0px #D4AF37; }
+  50% { transform: scale(1.1); box-shadow: 0 0 15px #D4AF37; }
+  100% { transform: scale(1); box-shadow: 0 0 0px #D4AF37; }
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #D4AF37; /* GOLD ACCENT */
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* ============ SECTIONS ============ */
+section {
+  display: none;
+  min-height: 100vh;
+  padding: 80px 20px 40px;
+  position: relative;
+}
+
+section.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============ HERO SECTION (WITH VIDEO) ============ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 60px;
+  min-height: 100vh;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.hero-tagline {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  padding: 0 10px;
+  font-style: italic;
+  color: #D4AF37; /* GOLD ACCENT */
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: transparent;
+  border: 2px solid #D4AF37; /* GOLD ACCENT */
+  color: #D4AF37; /* GOLD ACCENT */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.btn:hover, .btn:active {
+  background: #D4AF37; /* GOLD ACCENT */
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+
+.back-btn {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  font-size: 14px;
+  background: rgba(212, 175, 55, 0.1);
+  z-index: 10;
+}
+
+/* ============ FLEET SECTION ============ */
+#fleet {
+  background: linear-gradient(135deg, #0b0b0b 0%, #141414 100%);
+  padding-top: 100px;
+}
+
+.fleet-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.fleet-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #D4AF37, #F6E27A); /* GOLD GRADIENT */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fleet-subtitle {
+  font-size: 18px;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============ GRID LAYOUT ============ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* ============ CAR CARD ============ */
+.card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid #252525;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15); /* GOLD SHADOW */
+  border-color: #D4AF37; /* GOLD ACCENT */
+}
+
+.availability {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.available {
+  background: rgba(212, 175, 55, 0.25); /* GOLD */
+  color: #D4AF37; /* GOLD */
+  border: 1px solid #D4AF37;
+}
+
+.unavailable {
+  background: rgba(255, 68, 68, 0.25);
+  color: #ff4444;
+  border: 1px solid #ff4444;
+}
+
+/* ============ IMAGE SLIDER ============ */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #111;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.slider img.active {
+  display: block;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.card:hover .slider-btn {
+  opacity: 1;
+}
+
+.slider-btn:active {
+  background: rgba(212, 175, 55, 0.9);
+  transform: translateY(-50%) scale(0.95);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.slider-dot.active {
+  background: #D4AF37; /* GOLD ACCENT */
+  transform: scale(1.3);
+}
+
+/* ============ CARD CONTENT ============ */
+.card-content {
+  padding: 25px;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.price {
+  color: #D4AF37; /* GOLD ACCENT */
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price span {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: 400;
+  color: #f5f5f5;
+}
+
+.description {
+  font-size: 15px;
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============ RENTAL DATES ============ */
+.rental-dates {
+  background: #222;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #333;
+}
+
+.date-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.date-input label {
+  display: block;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.date-input input {
+  width: 100%;
+  padding: 14px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.date-input input:focus {
+  outline: none;
+  border-color: #D4AF37; /* GOLD ACCENT */
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.date-input input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.days-display {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calculated-price {
+  color: #D4AF37; /* GOLD ACCENT */
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ============ CART DRAWER (REBUILT FOR STABILITY) ============ */
+#cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  /* Use dvh for mobile browsers to properly account for address bars */
+  height: 100vh;
+  height: 100dvh;
+  background: #0f0f0f;
+  z-index: 3001;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* FLEX LAYOUT: This is the key to fixing the scroll issue */
+  display: flex;
+  flex-direction: column;
+}
+
+#cart.active {
+  right: 0;
+}
+
+/* 1. Header is static at top */
+.cart-header {
+  padding: 20px;
+  background: #141414;
+  border-bottom: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0; /* Prevents shrinking */
+  min-height: 70px;
+}
+
+.cart-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #D4AF37;
+}
+
+.close-cart {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+/* 2. Content is flexible and scrolls internally */
+.cart-content {
+  flex: 1; /* Grow to fill available space */
+  overflow-y: auto; /* Scroll ONLY inside this area */
+  padding: 20px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+.cart-item {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #252525;
+}
+
+.cart-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+/* REDUCED FONT SIZES FOR CART ITEMS */
+.cart-item-name {
+  font-weight: 600;
+  font-size: 13px;
+  color: #fff;
+}
+
+.cart-item-price {
+  color: #D4AF37; /* GOLD ACCENT */
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.cart-item-dates {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+  background: #222;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.cart-item-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item-days {
+  font-size: 11px;
+  opacity: 0.8;
+  background: #222;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.remove-btn {
+  background: #ff4444;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cart-summary {
+  background: #141414;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #252525;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+/* 3. Footer is static at bottom (No Position Absolute) */
+.cart-footer {
+  flex-shrink: 0; /* Prevents shrinking */
+  padding: 15px 20px;
+  background: #141414;
+  border-top: 1px solid #222;
+  z-index: 10;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  gap: 15px;
+  /* Safe area for iPhone home bar */
+  padding-bottom: max(15px, env(safe-area-inset-bottom));
+}
+
+.cart-footer-total-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-footer-label {
+  font-size: 11px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cart-footer-amount {
+  font-size: 18px;
+  font-weight: 700;
+  color: #D4AF37; /* GOLD ACCENT */
+}
+
+.cart-footer .btn {
+  width: auto;
+  min-height: auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  background: #D4AF37; /* GOLD ACCENT */
+  color: #000;
+  border: 2px solid #D4AF37;
+  border-radius: 8px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.cart-footer .btn:hover, .cart-footer .btn:active {
+  background: #F6E27A;
+  border-color: #F6E27A;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* ============ CART OVERLAY ============ */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: none;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.cart-overlay.active {
+  display: block;
+}
+
+/* ============ NOTIFICATION ============ */
+.notification {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  left: 20px;
+  background: #D4AF37; /* GOLD ACCENT */
+  color: #000;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  z-index: 1002;
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: transform 0.4s, opacity 0.4s;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ============ ABOUT SECTION (CEO DESIGN) ============ */
+#about {
+  background: linear-gradient(135deg, #0b0b0b 0%, #141414 100%);
+  padding-top: 120px;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+
+.ceo-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid #222;
+}
+
+.ceo-image-wrapper {
+  flex-shrink: 0;
+  width: 250px;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #D4AF37; /* GOLD ACCENT */
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.ceo-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ceo-message {
+  text-align: left;
+}
+
+.ceo-quote {
+  font-size: 20px;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.ceo-quote::before {
+  content: '"';
+  font-size: 60px;
+  color: #D4AF37; /* GOLD ACCENT */
+  position: absolute;
+  top: -30px;
+  left: -20px;
+  opacity: 0.3;
+}
+
+.ceo-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #D4AF37; /* GOLD ACCENT */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ceo-title {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.location-info {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  color: #D4AF37; /* GOLD ACCENT */
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.about-text-content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.about-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+.about-description {
+  opacity: 0.8;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-size: 17px;
+}
+
+/* ============ FOOTER ============ */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  opacity: 0.6;
+  font-size: 14px;
+  background: #0a0a0a;
+  border-top: 1px solid #222;
+}
+
+/* ============ WHATSAPP ORDER BUTTON STYLES ============ */
+/* These styles ensure the WhatsApp order button is only in the cart */
+.whatsapp-order-btn {
+  display: none !important; /* Hide any WhatsApp button outside cart */
+}
+
+/* ============ MEDIA QUERIES ============ */
+@media (max-width: 768px) {
+  header {
+    padding: 12px 15px;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+  .logo {
+    font-size: 16px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    order: -1;
+  }
+
+  .header-right-tools {
+    display: flex;
+    margin-left: auto;
+  }
+  
+  nav {
+    width: 50%;
+    left: -100%;
+    right: auto;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+  }
+  
+  nav.active {
+    left: 0;
+    right: auto;
+  }
+  
+  section {
+    padding: 80px 15px 40px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  #cart {
+    width: 100%;
+  }
+
+  /* MOBILE ADJUSTMENTS */
+  .cart-footer {
+    padding: 10px 15px;
+    /* Extra safe area for bottom swipe bar */
+    padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+  }
+  
+  .cart-footer .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .cart-footer-amount {
+    font-size: 16px; 
+  }
+
+  .ceo-profile {
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .ceo-image-wrapper {
+    width: 100%;
+    max-width: 280px;
+    height: 320px;
+  }
+
+  .ceo-message {
+    text-align: center;
+  }
+
+  .ceo-quote {
+    font-size: 16px;
+  }
+
+  .cart-item-name { font-size: 13px; }
+  .cart-item-price { font-size: 13px !important; }
+  .summary-row { font-size: 12px; }
+  
+  /* SAFETY: Ensure no WhatsApp button appears outside cart on mobile */
+  .whatsapp-order-btn,
+  .whatsapp-button,
+  .order-whatsapp {
+    display: none !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .cart-footer {
+    padding: 10px 15px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+  }
+  
+  .cart-footer .btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  
+  /* Footer text adjustment for mobile */
+  footer {
+    font-size: 13px;
+    padding: 25px 15px;
+  }
+}
+
+/* SAFETY: Mobile-specific adjustments to ensure no WhatsApp button appears outside cart */
+@media (hover: none) and (pointer: coarse) {
+  .whatsapp-order-btn,
+  .whatsapp-button,
+  .order-whatsapp,
+  .whatsapp-floating,
+  .floating-whatsapp {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
+  /* Ensure only the cart has the WhatsApp button */
+  #cart .cart-footer .btn {
+    display: block !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+  <div class="loader-ring"></div>
+</div>
+
+<div id="notification" class="notification"></div>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<header>
+  <div class="nav-container">
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    <div class="logo">SYDNEYLUXURYHIRE</div>
+    <div class="header-right-tools">
+      <div class="cart-icon" onclick="toggleCart()">
+        🛒
+        <span id="count" class="cart-count">0</span>
+      </div>
+    </div>
+    <nav id="mobileNav">
+      <div style="width: 100%; text-align: left; padding-bottom: 20px;">
+          <button style="background:none; border:none; color:#fff; font-size:30px;" onclick="toggleMobileMenu()">&times;</button>
+      </div>
+      <a onclick="showSection('home'); toggleMobileMenu();">Home</a>
+      <a onclick="showSection('fleet'); toggleMobileMenu();">Fleet</a>
+      <a onclick="showSection('about'); toggleMobileMenu();">About</a>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero active">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="images/carbackground.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h1>Experience Unmatched Luxury</h1>
+    <p class="hero-tagline">Where Elegance Meets Performance</p>
+    <button class="btn" onclick="showSection('fleet')">Explore Our Fleet</button>
+  </div>
+</section>
+
+<section id="fleet">
+  <button class="btn back-btn" onclick="showSection('home')">← Back to Home</button>
+  
+  <div class="fleet-header">
+    <h2>Our Premium Fleet</h2>
+    <p class="fleet-subtitle">Select from our exclusive collection of luxury vehicles</p>
+  </div>
+  
+  <div class="grid">
+    
+    <div class="card">
+      <div class="availability available">Available</div>
+      <div class="slider">
+        <img src="images/PRADO1 (1).jpeg" class="active" alt="Toyota Prado TX">
+        <img src="images/PRADO1 (2).jpeg" alt="Toyota Prado TX Side View">
+        <img src="images/PRADO1 (3).jpeg" alt="Toyota Prado TX Interior">
+        <button class="slider-btn prev" onclick="slide('prado', -1)">‹</button>
+        <button class="slider-btn next" onclick="slide('prado', 1)">›</button>
+        <div class="slider-indicators" id="prado-indicators"></div>
+      </div>
+      <div class="card-content">
+        <h3>Toyota Prado TX</h3>
+        <div class="price">KES 20,000 <span>/ day</span></div>
+        <div class="description">
+          Premium SUV with advanced off-road capabilities, leather interior, 
+          and cutting-edge technology. Perfect for both city drives and adventures.
+        </div>
+        
+        <div class="rental-dates">
+          <div class="date-input-group">
+            <div class="date-input">
+              <label>Pick-up Date</label>
+              <input type="date" id="prado-pickup" onchange="calculatePrice('prado', 20000)">
+            </div>
+            <div class="date-input">
+              <label>Return Date</label>
+              <input type="date" id="prado-return" onchange="calculatePrice('prado', 20000)">
+            </div>
+          </div>
+          <div class="days-display" id="prado-days">Select dates to calculate</div>
+          <div class="calculated-price" id="prado-total"></div>
+        </div>
+        
+        <button class="btn" onclick="addToCart('Toyota Prado TX', 20000, 'prado')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="availability unavailable">Unavailable</div>
+      <div class="slider">
+        <img src="images/GWAGON 1 (1).jpeg" class="active" alt="Mercedes G-Wagon">
+        <img src="images/GWAGON 1 (2).jpeg" alt="Mercedes G-Wagon Side View">
+        <img src="images/GWAGON 1 (3).jpeg" alt="Mercedes G-Wagon Interior">
+        <button class="slider-btn prev" onclick="slide('gwagon', -1)">‹</button>
+        <button class="slider-btn next" onclick="slide('gwagon', 1)">›</button>
+        <div class="slider-indicators" id="gwagon-indicators"></div>
+      </div>
+      <div class="card-content">
+        <h3>Mercedes G-Wagon</h3>
+        <div class="price">KES 40,000 <span>/ day</span></div>
+        <div class="description">
+          Iconic luxury SUV with unparalleled presence. Features handcrafted interiors, 
+          premium sound system, and superior performance.
+        </div>
+        
+        <div class="rental-dates">
+          <div class="date-input-group">
+            <div class="date-input">
+              <label>Pick-up Date</label>
+              <input type="date" id="gwagon-pickup" disabled>
+            </div>
+            <div class="date-input">
+              <label>Return Date</label>
+              <input type="date" id="gwagon-return" disabled>
+            </div>
+          </div>
+          <div class="days-display" id="gwagon-days">Currently unavailable</div>
+          <div class="calculated-price" id="gwagon-total"></div>
+        </div>
+        
+        <button class="btn" disabled onclick="addToCart('Mercedes G-Wagon', 40000, 'gwagon')">Unavailable</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="availability available">Available</div>
+      <div class="slider">
+        <img src="images/Audi 1 (1).jpg" class="active" alt="Audi A4">
+        <img src="images/Audi 1 (2).jpg" alt="Audi A4 Side View">
+        <button class="slider-btn prev" onclick="slide('audi', -1)">‹</button>
+        <button class="slider-btn next" onclick="slide('audi', 1)">›</button>
+        <div class="slider-indicators" id="audi-indicators"></div>
+      </div>
+      <div class="card-content">
+        <h3>Audi A4</h3>
+        <div class="price">KES 12,000 <span>/ day</span></div>
+        <div class="description">
+          Elegant sedan with sporty performance, luxurious interiors, 
+          and advanced driver assistance systems. Ideal for business and leisure.
+        </div>
+        
+        <div class="rental-dates">
+          <div class="date-input-group">
+            <div class="date-input">
+              <label>Pick-up Date</label>
+              <input type="date" id="audi-pickup" onchange="calculatePrice('audi', 12000)">
+            </div>
+            <div class="date-input">
+              <label>Return Date</label>
+              <input type="date" id="audi-return" onchange="calculatePrice('audi', 12000)">
+            </div>
+          </div>
+          <div class="days-display" id="audi-days">Select dates to calculate</div>
+          <div class="calculated-price" id="audi-total"></div>
+        </div>
+        
+        <button class="btn" onclick="addToCart('Audi A4', 12000, 'audi')">Add to Cart</button>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section id="about">
+  <button class="btn back-btn" onclick="showSection('home')">← Back to Home</button>
+  
+  <div class="about-container">
+    <h2 class="about-title">About SYDNEYLUXURYHIRE</h2>
+    
+    <div class="ceo-profile">
+      <div class="ceo-image-wrapper">
+        <img src="images/CEO.jpg" alt="SYDNEYLUXURYHIRE CEO">
+      </div>
+      <div class="ceo-message">
+        <p class="ceo-quote">
+          We started this company with one goal: to make car rentals simple and reliable. 
+          No hidden fees, no complications—just well-maintained vehicles and honest service. 
+          We respect your time, your trust, and your journey. Wherever you're headed, we're here to help you get there.
+        </p>
+        <div class="ceo-info">
+          <p class="ceo-name">The CEO</p>
+          <p class="ceo-title">Founder of SYDNEYLUXURYHIRE</p>
+          <p class="location-info">Location: Ngara, Nairobi</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="cart">
+  <div class="cart-header">
+    <h3>Your Cart 🛒</h3>
+    <button class="close-cart" onclick="toggleCart()">×</button>
+  </div>
+  
+  <div class="cart-content">
+    <div class="cart-item" id="cartDatesSection" style="background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+      <div style="font-weight: 600; margin-bottom: 5px;">Rental Period</div>
+      <div id="cartDates" style="font-size: 14px; opacity: 0.8;">Select dates to see total</div>
+    </div>
+    
+    <div id="items"></div>
+    
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">KES 0</span>
+      </div>
+      <div class="summary-row">
+        <span>Rental Days:</span>
+        <span id="cartDays">0 days</span>
+      </div>
+      <div class="summary-row">
+        <span>Insurance (5%):</span>
+        <span id="cartInsurance">KES 0</span>
+      </div>
+      </div>
+  </div>
+  
+  <div class="cart-footer">
+    <div class="cart-footer-total-group">
+      <span class="cart-footer-label">Total Amount</span>
+      <span id="cartFooterTotal" class="cart-footer-amount">KES 0</span>
+    </div>
+    <button class="btn" onclick="order()">Order via WhatsApp</button>
+  </div>
+</div>
+
+<footer>2026 @sydneyluxuryhire</footer>
+
+<script>
+// ============ GLOBAL VARIABLES ============
+let cart = [];
+
+// ============ MOBILE MENU ============
+function toggleMobileMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('active');
+}
+
+// ============ SECTION NAVIGATION ============
+function showSection(id) {
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.remove('active');
+    section.style.display = 'none';
+  });
+  
+  const targetSection = document.getElementById(id);
+  targetSection.style.display = 'block';
+  targetSection.classList.add('active');
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============ CART FUNCTIONS ============
+function toggleCart() {
+  const cartElement = document.getElementById('cart');
+  const overlay = document.getElementById('cartOverlay');
+  const body = document.body;
+  
+  cartElement.classList.toggle('active');
+  overlay.classList.toggle('active');
+  
+  if (cartElement.classList.contains('active')) {
+    body.style.overflow = 'hidden';
+    updateCartCalculations();
+    // Ensure the button is visible when cart opens
+    setTimeout(() => {
+      const cartFooter = document.querySelector('.cart-footer');
+      if (cartFooter) {
+        cartFooter.style.visibility = 'visible';
+        cartFooter.style.opacity = '1';
+      }
+    }, 100);
+  } else {
+    body.style.overflow = 'auto';
+  }
+}
+
+// ============ PRICE CALCULATION ============
+function calculatePrice(carId, dailyPrice) {
+  const pickupInput = document.getElementById(`${carId}-pickup`);
+  const returnInput = document.getElementById(`${carId}-return`);
+  
+  if (!pickupInput || !returnInput) return null;
+  
+  const pickup = pickupInput.value;
+  const returnDate = returnInput.value;
+  
+  if (!pickup || !returnDate) return null;
+  
+  const pickupDate = new Date(pickup);
+  const returnDateObj = new Date(returnDate);
+  
+  if (returnDateObj <= pickupDate) {
+    document.getElementById(`${carId}-days`).textContent = 'Return must be after pickup';
+    document.getElementById(`${carId}-total`).textContent = '';
+    return null;
+  }
+  
+  const timeDiff = returnDateObj.getTime() - pickupDate.getTime();
+  const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  const totalPrice = daysDiff * dailyPrice;
+  
+  document.getElementById(`${carId}-days`).textContent = `${daysDiff} day${daysDiff !== 1 ? 's' : ''}`;
+  document.getElementById(`${carId}-total`).textContent = `KES ${totalPrice.toLocaleString()}`;
+  
+  return { days: daysDiff, total: totalPrice, pickup, returnDate };
+}
+
+// ============ ADD TO CART ============
+function addToCart(carName, dailyPrice, carId) {
+  const priceData = calculatePrice(carId, dailyPrice);
+  
+  if (!priceData) {
+    showNotification('Please select valid rental dates first');
+    return;
+  }
+  
+  cart.push({
+    name: carName,
+    dailyPrice: dailyPrice,
+    pickup: priceData.pickup,
+    returnDate: priceData.returnDate,
+    days: priceData.days,
+    total: priceData.total,
+    id: Date.now() + Math.random()
+  });
+  
+  showNotification(`✓ Added ${carName} for ${priceData.days} days`);
+  document.querySelector('.cart-icon').classList.add('glow');
+  setTimeout(() => document.querySelector('.cart-icon').classList.remove('glow'), 1500);
+  
+  renderCart();
+  updateCartCalculations();
+}
+
+// ============ REMOVE FROM CART ============
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+  updateCartCalculations();
+}
+
+// ============ RENDER CART ============
+function renderCart() {
+  document.getElementById('count').textContent = cart.length;
+  const itemsDiv = document.getElementById('items');
+  
+  if (cart.length === 0) {
+    itemsDiv.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+    return;
+  }
+  
+  let html = '';
+  cart.forEach((item, index) => {
+    html += `
+      <div class="cart-item">
+        <div class="cart-item-header">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">KES ${item.total.toLocaleString()}</div>
+        </div>
+        <div class="cart-item-dates">${item.pickup} → ${item.returnDate}</div>
+        <div class="cart-item-actions">
+          <div class="cart-item-days">${item.days} day${item.days !== 1 ? 's' : ''}</div>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+  });
+  itemsDiv.innerHTML = html;
+}
+
+// ============ UPDATE CALCULATIONS ============
+function updateCartCalculations() {
+  let subtotal = 0;
+  let totalDays = 0;
+  
+  cart.forEach(item => {
+    subtotal += item.total;
+    if (item.days > totalDays) totalDays = item.days;
+  });
+  
+  const insurance = Math.round(subtotal * 0.05);
+  const total = subtotal + insurance;
+  
+  document.getElementById('cartSubtotal').textContent = `KES ${subtotal.toLocaleString()}`;
+  document.getElementById('cartDays').textContent = `${totalDays} day${totalDays !== 1 ? 's' : ''}`;
+  document.getElementById('cartInsurance').textContent = `KES ${insurance.toLocaleString()}`;
+  
+  // UPDATE FOOTER TOTAL
+  document.getElementById('cartFooterTotal').textContent = `KES ${total.toLocaleString()}`;
+}
+
+// ============ NOTIFICATION ============
+function showNotification(message) {
+  const n = document.getElementById('notification');
+  n.textContent = message;
+  n.classList.add('show');
+  setTimeout(() => n.classList.remove('show'), 3000);
+}
+
+// ============ WHATSAPP ORDER ============
+function order() {
+  if (!cart.length) return;
+  const phoneNumber = '254712345678';
+  let message = `Hello SYDNEYLUXURYHIRE,%0A%0AI want to rent:%0A%0A`;
+  cart.forEach((item, index) => {
+    message += `${index + 1}. ${item.name}%0A    Dates: ${item.pickup} to ${item.returnDate}%0A    Price: KES ${item.total.toLocaleString()}%0A%0A`;
+  });
+  window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+}
+
+// ============ SLIDER ============
+function slide(carId, direction) {
+  const card = document.querySelector(`.card:has(#${carId}-pickup)`);
+  const imgs = card.querySelectorAll('.slider img');
+  let activeIndex = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+  
+  imgs[activeIndex].classList.remove('active');
+  let newIndex = (activeIndex + direction + imgs.length) % imgs.length;
+  imgs[newIndex].classList.add('active');
+  updateIndicators(carId, imgs.length, newIndex);
+}
+
+function updateIndicators(carId, total, activeIndex) {
+  const indicators = document.getElementById(`${carId}-indicators`);
+  if (!indicators) return;
+  indicators.innerHTML = '';
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = `slider-dot ${i === activeIndex ? 'active' : ''}`;
+    indicators.appendChild(dot);
+  }
+}
+
+// ============ INITIALIZE ============
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
+  ['prado', 'gwagon', 'audi'].forEach(id => {
+    const card = document.querySelector(`.card:has(#${id}-pickup)`);
+    if (card) updateIndicators(id, card.querySelectorAll('.slider img').length, 0);
+  });
+  
+  // Set minimum date to today for date inputs
+  const today = new Date().toISOString().split('T')[0];
+  document.querySelectorAll('input[type="date"]').forEach(input => {
+    if (!input.disabled) {
+      input.min = today;
+      // Also set the default value to today
+      input.value = today;
+    }
+  });
+});
+</script>
+</body>
+</html>
