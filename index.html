@@ -1134,37 +1134,37 @@ footer {
     <div class="card">
       <div class="availability available">Available</div>
       <div class="slider">
-        <img src="images/PRADO1 (1).jpeg" class="active" alt="Toyota Prado TX">
-        <img src="images/PRADO1 (2).jpeg" alt="Toyota Prado TX Side View">
-        <img src="images/PRADO1 (3).jpeg" alt="Toyota Prado TX Interior">
-        <button class="slider-btn prev" onclick="slide('prado', -1)">‹</button>
-        <button class="slider-btn next" onclick="slide('prado', 1)">›</button>
-        <div class="slider-indicators" id="prado-indicators"></div>
+        <img src="images/Ferrari GTB 488 (1).jpg" class="active" alt="Ferrari GTB 488">
+        <img src="images/Ferrari GTB 488 (2).jpg" alt="Ferrari GTB 488 Side View">
+        <img src="images/Ferrari GTB 488 (3).jpg" alt="Ferrari GTB 488 Interior">
+        <button class="slider-btn prev" onclick="slide('ferrari', -1)">‹</button>
+        <button class="slider-btn next" onclick="slide('ferrari', 1)">›</button>
+        <div class="slider-indicators" id="ferrari-indicators"></div>
       </div>
       <div class="card-content">
-        <h3>Toyota Prado TX</h3>
-        <div class="price">$200 <span>/ day</span></div>
+        <h3>Ferrari GTB 488</h3>
+        <div class="price">$2,600 <span>/ day</span></div>
         <div class="description">
-          Premium SUV with advanced off-road capabilities, leather interior, 
-          and cutting-edge technology. Perfect for both city drives and adventures.
+          The Ferrari 488 GTB provides track-level performance for everyday driving. 
+          Its powerful V8 engine and aerodynamic design deliver an unforgettable experience.
         </div>
         
         <div class="rental-dates">
           <div class="date-input-group">
             <div class="date-input">
               <label>Pick-up Date</label>
-              <input type="date" id="prado-pickup" onchange="calculatePrice('prado', 200)">
+              <input type="date" id="ferrari-pickup" onchange="calculatePrice('ferrari', 2600)">
             </div>
             <div class="date-input">
               <label>Return Date</label>
-              <input type="date" id="prado-return" onchange="calculatePrice('prado', 200)">
+              <input type="date" id="ferrari-return" onchange="calculatePrice('ferrari', 2600)">
             </div>
           </div>
-          <div class="days-display" id="prado-days">Select dates to calculate</div>
-          <div class="calculated-price" id="prado-total"></div>
+          <div class="days-display" id="ferrari-days">Select dates to calculate</div>
+          <div class="calculated-price" id="ferrari-total"></div>
         </div>
         
-        <button class="btn" onclick="addToCart('Toyota Prado TX', 200, 'prado')">Add to Cart</button>
+        <button class="btn" onclick="addToCart('Ferrari GTB 488', 2600, 'ferrari')">Add to Cart</button>
       </div>
     </div>
 
@@ -1180,7 +1180,7 @@ footer {
       </div>
       <div class="card-content">
         <h3>Mercedes G-Wagon</h3>
-        <div class="price">$400 <span>/ day</span></div>
+        <div class="price">$1,500 <span>/ day</span></div>
         <div class="description">
           Iconic luxury SUV with unparalleled presence. Features handcrafted interiors, 
           premium sound system, and superior performance.
@@ -1190,18 +1190,18 @@ footer {
           <div class="date-input-group">
             <div class="date-input">
               <label>Pick-up Date</label>
-              <input type="date" id="gwagon-pickup" disabled>
+              <input type="date" id="gwagon-pickup" onchange="calculatePrice('gwagon', 1500)">
             </div>
             <div class="date-input">
               <label>Return Date</label>
-              <input type="date" id="gwagon-return" disabled>
+              <input type="date" id="gwagon-return" onchange="calculatePrice('gwagon', 1500)">
             </div>
           </div>
           <div class="days-display" id="gwagon-days">Currently unavailable</div>
           <div class="calculated-price" id="gwagon-total"></div>
         </div>
         
-        <button class="btn" disabled onclick="addToCart('Mercedes G-Wagon', 400, 'gwagon')">Unavailable</button>
+        <button class="btn" disabled onclick="addToCart('Mercedes G-Wagon', 1500, 'gwagon')">Unavailable</button>
       </div>
     </div>
 
@@ -1275,6 +1275,43 @@ footer {
         </div>
         
         <button class="btn" onclick="addToCart('Lamborghini Urus', 2300, 'urus')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="availability available">Available</div>
+      <div class="slider">
+        <img src="images/Rolls Royce Cullinan (1).jpg" class="active" alt="Rolls Royce Cullinan">
+        <img src="images/Rolls Royce Cullinan (2).jpg" alt="Rolls Royce Cullinan Side View">
+        <img src="images/Rolls Royce Cullinan (3).jpg" alt="Rolls Royce Cullinan Interior">
+        <button class="slider-btn prev" onclick="slide('cullinan', -1)">‹</button>
+        <button class="slider-btn next" onclick="slide('cullinan', 1)">›</button>
+        <div class="slider-indicators" id="cullinan-indicators"></div>
+      </div>
+      <div class="card-content">
+        <h3>Rolls Royce Cullinan</h3>
+        <div class="price">$5,000 <span>/ day</span></div>
+        <div class="description">
+          The premier luxury SUV. Experience the pinnacle of automotive luxury with the Rolls-Royce Cullinan.
+          Effortless everywhere, it offers unparalleled comfort and presence.
+        </div>
+        
+        <div class="rental-dates">
+          <div class="date-input-group">
+            <div class="date-input">
+              <label>Pick-up Date</label>
+              <input type="date" id="cullinan-pickup" onchange="calculatePrice('cullinan', 5000)">
+            </div>
+            <div class="date-input">
+              <label>Return Date</label>
+              <input type="date" id="cullinan-return" onchange="calculatePrice('cullinan', 5000)">
+            </div>
+          </div>
+          <div class="days-display" id="cullinan-days">Select dates to calculate</div>
+          <div class="calculated-price" id="cullinan-total"></div>
+        </div>
+        
+        <button class="btn" onclick="addToCart('Rolls Royce Cullinan', 5000, 'cullinan')">Add to Cart</button>
       </div>
     </div>
     
@@ -1558,7 +1595,7 @@ function updateIndicators(carId, total, activeIndex) {
 // ============ INITIALIZE ============
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
-  ['prado', 'gwagon', 'audi', 'urus'].forEach(id => {
+  ['gwagon', 'audi', 'urus', 'ferrari', 'cullinan'].forEach(id => {
     const card = document.querySelector(`.card:has(#${id}-pickup)`);
     if (card) updateIndicators(id, card.querySelectorAll('.slider img').length, 0);
   });
