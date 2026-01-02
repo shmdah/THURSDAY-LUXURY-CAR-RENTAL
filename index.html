@@ -1112,7 +1112,7 @@ footer {
 
 <section id="home" class="hero active">
   <video autoplay muted loop playsinline preload="metadata">
-    <source src="images/carbackground.mp4" type="video/mp4">
+    <source src="images/SLH.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
     <h1>Experience Unmatched Luxury</h1>
@@ -1143,7 +1143,7 @@ footer {
       </div>
       <div class="card-content">
         <h3>Toyota Prado TX</h3>
-        <div class="price">KES 20,000 <span>/ day</span></div>
+        <div class="price">$200 <span>/ day</span></div>
         <div class="description">
           Premium SUV with advanced off-road capabilities, leather interior, 
           and cutting-edge technology. Perfect for both city drives and adventures.
@@ -1153,18 +1153,18 @@ footer {
           <div class="date-input-group">
             <div class="date-input">
               <label>Pick-up Date</label>
-              <input type="date" id="prado-pickup" onchange="calculatePrice('prado', 20000)">
+              <input type="date" id="prado-pickup" onchange="calculatePrice('prado', 200)">
             </div>
             <div class="date-input">
               <label>Return Date</label>
-              <input type="date" id="prado-return" onchange="calculatePrice('prado', 20000)">
+              <input type="date" id="prado-return" onchange="calculatePrice('prado', 200)">
             </div>
           </div>
           <div class="days-display" id="prado-days">Select dates to calculate</div>
           <div class="calculated-price" id="prado-total"></div>
         </div>
         
-        <button class="btn" onclick="addToCart('Toyota Prado TX', 20000, 'prado')">Add to Cart</button>
+        <button class="btn" onclick="addToCart('Toyota Prado TX', 200, 'prado')">Add to Cart</button>
       </div>
     </div>
 
@@ -1180,7 +1180,7 @@ footer {
       </div>
       <div class="card-content">
         <h3>Mercedes G-Wagon</h3>
-        <div class="price">KES 40,000 <span>/ day</span></div>
+        <div class="price">$400 <span>/ day</span></div>
         <div class="description">
           Iconic luxury SUV with unparalleled presence. Features handcrafted interiors, 
           premium sound system, and superior performance.
@@ -1201,7 +1201,7 @@ footer {
           <div class="calculated-price" id="gwagon-total"></div>
         </div>
         
-        <button class="btn" disabled onclick="addToCart('Mercedes G-Wagon', 40000, 'gwagon')">Unavailable</button>
+        <button class="btn" disabled onclick="addToCart('Mercedes G-Wagon', 400, 'gwagon')">Unavailable</button>
       </div>
     </div>
 
@@ -1216,7 +1216,7 @@ footer {
       </div>
       <div class="card-content">
         <h3>Audi A4</h3>
-        <div class="price">KES 12,000 <span>/ day</span></div>
+        <div class="price">$120 <span>/ day</span></div>
         <div class="description">
           Elegant sedan with sporty performance, luxurious interiors, 
           and advanced driver assistance systems. Ideal for business and leisure.
@@ -1226,18 +1226,55 @@ footer {
           <div class="date-input-group">
             <div class="date-input">
               <label>Pick-up Date</label>
-              <input type="date" id="audi-pickup" onchange="calculatePrice('audi', 12000)">
+              <input type="date" id="audi-pickup" onchange="calculatePrice('audi', 120)">
             </div>
             <div class="date-input">
               <label>Return Date</label>
-              <input type="date" id="audi-return" onchange="calculatePrice('audi', 12000)">
+              <input type="date" id="audi-return" onchange="calculatePrice('audi', 120)">
             </div>
           </div>
           <div class="days-display" id="audi-days">Select dates to calculate</div>
           <div class="calculated-price" id="audi-total"></div>
         </div>
         
-        <button class="btn" onclick="addToCart('Audi A4', 12000, 'audi')">Add to Cart</button>
+        <button class="btn" onclick="addToCart('Audi A4', 120, 'audi')">Add to Cart</button>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="availability available">Available</div>
+      <div class="slider">
+        <img src="images/Lamborghini Urus  (1).jpg" class="active" alt="Lamborghini Urus">
+        <img src="images/Lamborghini Urus  (2).jpg" alt="Lamborghini Urus Side View">
+        <img src="images/Lamborghini Urus  (3).jpg" alt="Lamborghini Urus Interior">
+        <button class="slider-btn prev" onclick="slide('urus', -1)">‹</button>
+        <button class="slider-btn next" onclick="slide('urus', 1)">›</button>
+        <div class="slider-indicators" id="urus-indicators"></div>
+      </div>
+      <div class="card-content">
+        <h3>Lamborghini Urus</h3>
+        <div class="price">$2,300 <span>/ day</span></div>
+        <div class="description">
+          The ultimate Super SUV. Blending the soul of a super sports car with the 
+          practicality of an SUV. Experience pure power, luxury, and versatility.
+        </div>
+        
+        <div class="rental-dates">
+          <div class="date-input-group">
+            <div class="date-input">
+              <label>Pick-up Date</label>
+              <input type="date" id="urus-pickup" onchange="calculatePrice('urus', 2300)">
+            </div>
+            <div class="date-input">
+              <label>Return Date</label>
+              <input type="date" id="urus-return" onchange="calculatePrice('urus', 2300)">
+            </div>
+          </div>
+          <div class="days-display" id="urus-days">Select dates to calculate</div>
+          <div class="calculated-price" id="urus-total"></div>
+        </div>
+        
+        <button class="btn" onclick="addToCart('Lamborghini Urus', 2300, 'urus')">Add to Cart</button>
       </div>
     </div>
     
@@ -1288,7 +1325,7 @@ footer {
     <div class="cart-summary">
       <div class="summary-row">
         <span>Subtotal:</span>
-        <span id="cartSubtotal">KES 0</span>
+        <span id="cartSubtotal">$0</span>
       </div>
       <div class="summary-row">
         <span>Rental Days:</span>
@@ -1296,7 +1333,7 @@ footer {
       </div>
       <div class="summary-row">
         <span>Insurance (5%):</span>
-        <span id="cartInsurance">KES 0</span>
+        <span id="cartInsurance">$0</span>
       </div>
       </div>
   </div>
@@ -1304,7 +1341,7 @@ footer {
   <div class="cart-footer">
     <div class="cart-footer-total-group">
       <span class="cart-footer-label">Total Amount</span>
-      <span id="cartFooterTotal" class="cart-footer-amount">KES 0</span>
+      <span id="cartFooterTotal" class="cart-footer-amount">$0</span>
     </div>
     <button class="btn" onclick="order()">Order via WhatsApp</button>
   </div>
@@ -1387,7 +1424,7 @@ function calculatePrice(carId, dailyPrice) {
   const totalPrice = daysDiff * dailyPrice;
   
   document.getElementById(`${carId}-days`).textContent = `${daysDiff} day${daysDiff !== 1 ? 's' : ''}`;
-  document.getElementById(`${carId}-total`).textContent = `KES ${totalPrice.toLocaleString()}`;
+  document.getElementById(`${carId}-total`).textContent = `$${totalPrice.toLocaleString()}`;
   
   return { days: daysDiff, total: totalPrice, pickup, returnDate };
 }
@@ -1442,7 +1479,7 @@ function renderCart() {
       <div class="cart-item">
         <div class="cart-item-header">
           <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-price">KES ${item.total.toLocaleString()}</div>
+          <div class="cart-item-price">$${item.total.toLocaleString()}</div>
         </div>
         <div class="cart-item-dates">${item.pickup} → ${item.returnDate}</div>
         <div class="cart-item-actions">
@@ -1468,12 +1505,12 @@ function updateCartCalculations() {
   const insurance = Math.round(subtotal * 0.05);
   const total = subtotal + insurance;
   
-  document.getElementById('cartSubtotal').textContent = `KES ${subtotal.toLocaleString()}`;
+  document.getElementById('cartSubtotal').textContent = `$${subtotal.toLocaleString()}`;
   document.getElementById('cartDays').textContent = `${totalDays} day${totalDays !== 1 ? 's' : ''}`;
-  document.getElementById('cartInsurance').textContent = `KES ${insurance.toLocaleString()}`;
+  document.getElementById('cartInsurance').textContent = `$${insurance.toLocaleString()}`;
   
   // UPDATE FOOTER TOTAL
-  document.getElementById('cartFooterTotal').textContent = `KES ${total.toLocaleString()}`;
+  document.getElementById('cartFooterTotal').textContent = `$${total.toLocaleString()}`;
 }
 
 // ============ NOTIFICATION ============
@@ -1490,7 +1527,7 @@ function order() {
   const phoneNumber = '254712345678';
   let message = `Hello SYDNEYLUXURYHIRE,%0A%0AI want to rent:%0A%0A`;
   cart.forEach((item, index) => {
-    message += `${index + 1}. ${item.name}%0A    Dates: ${item.pickup} to ${item.returnDate}%0A    Price: KES ${item.total.toLocaleString()}%0A%0A`;
+    message += `${index + 1}. ${item.name}%0A    Dates: ${item.pickup} to ${item.returnDate}%0A    Price: $${item.total.toLocaleString()}%0A%0A`;
   });
   window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
 }
@@ -1521,7 +1558,7 @@ function updateIndicators(carId, total, activeIndex) {
 // ============ INITIALIZE ============
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
-  ['prado', 'gwagon', 'audi'].forEach(id => {
+  ['prado', 'gwagon', 'audi', 'urus'].forEach(id => {
     const card = document.querySelector(`.card:has(#${id}-pickup)`);
     if (card) updateIndicators(id, card.querySelectorAll('.slider img').length, 0);
   });
