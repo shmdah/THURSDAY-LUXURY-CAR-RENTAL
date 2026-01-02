@@ -64,7 +64,7 @@ header {
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 15px 20px;
+  padding: 10px 20px; /* Reduced top/bottom padding slightly for image */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,11 +72,12 @@ header {
   border-bottom: 1px solid #222;
 }
 
-.logo {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #D4AF37; /* GOLD ACCENT */
+/* Logo Image Styling */
+.logo img {
+  height: 50px; /* Adjust this value to fit your logo size preference */
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* ============ MOBILE NAVIGATION ============ */
@@ -1008,8 +1009,8 @@ footer {
     gap: 15px;
   }
   
-  .logo {
-    font-size: 16px;
+  .logo img {
+    height: 40px; /* Smaller logo on mobile */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -1159,7 +1160,9 @@ footer {
 <header>
   <div class="nav-container">
     <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-    <div class="logo">SYDNEYLUXURYHIRE</div>
+    <div class="logo">
+      <img src="images/logo.png" alt="SYDNEYLUXURYHIRE">
+    </div>
     <div class="header-right-tools">
       <div class="cart-icon" onclick="toggleCart()">
         🛒
@@ -1199,6 +1202,43 @@ footer {
   
   <div class="grid">
     
+    <div class="card">
+      <div class="availability available">Available</div>
+      <div class="slider">
+        <img src="images/Ferrari GTB 488 (1).jpg" class="active" alt="Ferrari GTB 488">
+        <img src="images/Ferrari GTB 488 (2).jpg" alt="Ferrari GTB 488 Side View">
+        <img src="images/Ferrari GTB 488 (3).jpg" alt="Ferrari GTB 488 Interior">
+        <button class="slider-btn prev" onclick="slide('ferrari', -1)">‹</button>
+        <button class="slider-btn next" onclick="slide('ferrari', 1)">›</button>
+        <div class="slider-indicators" id="ferrari-indicators"></div>
+      </div>
+      <div class="card-content">
+        <h3>Ferrari GTB 488</h3>
+        <div class="price">$2,600 <span>/ day</span></div>
+        <div class="description">
+          The Ferrari 488 GTB provides track-level performance for everyday driving. 
+          Its powerful V8 engine and aerodynamic design deliver an unforgettable experience.
+        </div>
+        
+        <div class="rental-dates">
+          <div class="date-input-group">
+            <div class="date-input">
+              <label>Pick-up Date</label>
+              <input type="date" id="ferrari-pickup" onchange="calculatePrice('ferrari', 2600)">
+            </div>
+            <div class="date-input">
+              <label>Return Date</label>
+              <input type="date" id="ferrari-return" onchange="calculatePrice('ferrari', 2600)">
+            </div>
+          </div>
+          <div class="days-display" id="ferrari-days">Select dates to calculate</div>
+          <div class="calculated-price" id="ferrari-total"></div>
+        </div>
+        
+        <button class="btn" onclick="addToCart('Ferrari GTB 488', 2600, 'ferrari')">Add to Cart</button>
+      </div>
+    </div>
+
     <div class="card">
       <div class="availability unavailable">Unavailable</div>
       <div class="slider">
@@ -1312,43 +1352,6 @@ footer {
     <div class="card">
       <div class="availability available">Available</div>
       <div class="slider">
-        <img src="images/Ferrari GTB 488 (1).jpg" class="active" alt="Ferrari GTB 488">
-        <img src="images/Ferrari GTB 488 (2).jpg" alt="Ferrari GTB 488 Side View">
-        <img src="images/Ferrari GTB 488 (3).jpg" alt="Ferrari GTB 488 Interior">
-        <button class="slider-btn prev" onclick="slide('ferrari', -1)">‹</button>
-        <button class="slider-btn next" onclick="slide('ferrari', 1)">›</button>
-        <div class="slider-indicators" id="ferrari-indicators"></div>
-      </div>
-      <div class="card-content">
-        <h3>Ferrari GTB 488</h3>
-        <div class="price">$2,600 <span>/ day</span></div>
-        <div class="description">
-          The Ferrari 488 GTB provides track-level performance for everyday driving. 
-          Its powerful V8 engine and aerodynamic design deliver an unforgettable experience.
-        </div>
-        
-        <div class="rental-dates">
-          <div class="date-input-group">
-            <div class="date-input">
-              <label>Pick-up Date</label>
-              <input type="date" id="ferrari-pickup" onchange="calculatePrice('ferrari', 2600)">
-            </div>
-            <div class="date-input">
-              <label>Return Date</label>
-              <input type="date" id="ferrari-return" onchange="calculatePrice('ferrari', 2600)">
-            </div>
-          </div>
-          <div class="days-display" id="ferrari-days">Select dates to calculate</div>
-          <div class="calculated-price" id="ferrari-total"></div>
-        </div>
-        
-        <button class="btn" onclick="addToCart('Ferrari GTB 488', 2600, 'ferrari')">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="availability available">Available</div>
-      <div class="slider">
         <img src="images/Rolls Royce Cullinan (1).jpg" class="active" alt="Rolls Royce Cullinan">
         <img src="images/Rolls Royce Cullinan (2).jpg" alt="Rolls Royce Cullinan Side View">
         <img src="images/Rolls Royce Cullinan (3).jpg" alt="Rolls Royce Cullinan Interior">
@@ -1423,7 +1426,7 @@ footer {
     </div>
 
     <div class="map-wrapper">
-      <iframe src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Sydney%20CBD%20Australia+(SYDNEYLUXURYHIRE)&t=&z=14&ie=UTF8&iwloc=B&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/place/Sydney+Luxury+Hire/@-33.794371,150.943526,16z/data=!4m6!3m5!1s0x6b1297d28fb0c2af:0x33938f346a3c251c!8m2!3d-33.7943707!4d150.9435263!16s%2Fg%2F11t6zbdrgm?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="contact-details">
