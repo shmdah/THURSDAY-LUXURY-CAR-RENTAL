@@ -65,29 +65,28 @@ header {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 1000;
   border-bottom: 1px solid #222;
 }
 
-.logo img {
+/* Flex Container for Header Elements */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative; /* Critical for centering logo on mobile */
   height: 50px;
+}
+
+.logo img {
+  height: 50px; 
   width: auto;
   display: block;
   object-fit: contain;
 }
 
-/* ============ MOBILE NAVIGATION ============ */
-.nav-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-direction: row; 
-  width: 100%;
-}
-
+/* Menu Button */
 .mobile-menu-btn {
   display: block;
   background: none;
@@ -96,21 +95,23 @@ header {
   font-size: 24px;
   cursor: pointer;
   padding: 5px;
-  order: -1; 
+  z-index: 1001; /* Ensure clickable */
 }
 
+/* Right Side Tools (Cart) */
 .header-right-tools {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-left: auto;
+  z-index: 1001; /* Ensure clickable */
 }
 
+/* ============ NAVIGATION DRAWER ============ */
 nav {
   position: fixed;
   top: 0;
   left: -100%; 
-  width: 50%;   
+  width: 60%; /* Slightly wider for better mobile usability */
   height: 100vh;
   background: #111;
   display: flex;
@@ -121,6 +122,7 @@ nav {
   transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2000;
   border-right: 1px solid #222;
+  box-shadow: 10px 0 30px rgba(0,0,0,0.5);
 }
 
 nav.active {
@@ -130,11 +132,11 @@ nav.active {
 nav a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px; /* Larger font for mobile touch targets */
   font-weight: 600;
   opacity: 0.8;
   transition: opacity 0.3s;
-  padding: 10px 0;
+  padding: 15px 0;
   width: 100%;
   border-bottom: 1px solid #222;
   cursor: pointer;
@@ -142,7 +144,7 @@ nav a {
 
 nav a:hover, nav a.active {
   opacity: 1;
-  color: #D4AF37; /* GOLD ACCENT */
+  color: #D4AF37;
 }
 
 /* ============ CART ICON ============ */
@@ -157,6 +159,12 @@ nav a:hover, nav a.active {
   justify-content: center;
   width: 40px;
   height: 40px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.cart-icon:active {
+  border-color: #D4AF37;
 }
 
 .cart-icon.glow {
@@ -601,8 +609,7 @@ section.active {
   width: 100%;
   height: 100%;
   border: 0;
-  /* Filter to make map grayscale to match theme */
-  filter: grayscale(100%) invert(92%) contrast(83%);
+  /* FIX: Removed grayscale filter for a full color map */
 }
 
 .contact-details {
@@ -624,7 +631,7 @@ section.active {
   align-items: center;
 }
 
-/* New SVG Icon Styling */
+/* Gold SVG Icons */
 .contact-icon-wrapper {
   width: 60px;
   height: 60px;
@@ -1012,52 +1019,48 @@ footer {
   display: none !important;
 }
 
+/* ============ MEDIA QUERIES (MOBILE FRIENDLY) ============ */
 @media (max-width: 768px) {
   header {
     padding: 12px 15px;
-    justify-content: space-between;
-    gap: 15px;
   }
   
-  .logo img {
-    height: 40px;
+  /* FIXED: Mobile Logo Positioning - Absolute Centering */
+  .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1000;
+  }
+  
+  .logo img {
+    height: 40px; /* Sized perfectly for mobile header */
   }
   
   .nav-container {
-    display: flex;
-    flex-direction: row;
+    height: 50px;
     justify-content: space-between;
-    width: 100%;
-    gap: 15px;
   }
 
   .mobile-menu-btn {
-    display: block;
     order: -1;
   }
 
   .header-right-tools {
-    display: flex;
     margin-left: auto;
   }
   
-  nav {
-    width: 50%;
-    left: -100%;
-    right: auto;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+  /* Text & Section Adjustments for Mobile */
+  .hero h1 {
+    font-size: 32px;
   }
   
-  nav.active {
-    left: 0;
-    right: auto;
+  .hero-tagline {
+    font-size: 16px;
   }
   
   section {
-    padding: 80px 15px 40px;
+    padding: 60px 15px 40px;
   }
   
   .grid {
@@ -1069,6 +1072,7 @@ footer {
     width: 100%;
   }
 
+  /* Cart Footer Adjustments */
   .cart-footer {
     padding: 10px 15px;
     padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
@@ -1429,7 +1433,7 @@ footer {
     </div>
 
     <div class="map-wrapper">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.875734267261!2d151.2092953152102!3d-33.86881998065622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae401e8b983f%3A0x5017d681632ccc0!2sSydney%20CBD%2C%20NSW%2C%20Australia!5e0!3m2!1sen!2sus!4v1645555555555!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://maps.google.com/maps?q=Sydney%20CBD&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="contact-details">
@@ -1674,7 +1678,7 @@ function showNotification(message) {
 // ============ WHATSAPP ORDER ============
 function order() {
   if (!cart.length) return;
-  const phoneNumber = '61412345678';
+  const phoneNumber = '61412345678'; // Updated to Generic AU Number
   let message = `Hello SYDNEYLUXURYHIRE,%0A%0AI want to rent:%0A%0A`;
   cart.forEach((item, index) => {
     message += `${index + 1}. ${item.name}%0A    Dates: ${item.pickup} to ${item.returnDate}%0A    Price: $${item.total.toLocaleString()}%0A%0A`;
