@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SYDNEYLUXURYHIRE</title>
+<title>THURSDAY LUXURY CAR HIRE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <style>
@@ -82,11 +82,18 @@ header {
   height: 50px;
 }
 
-.logo img {
-  height: 50px; 
-  width: auto;
-  display: block;
-  object-fit: contain;
+/* TEXT LOGO STYLING */
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #fff;
+  text-transform: uppercase;
+  z-index: 1002;
+}
+
+.logo span {
+    color: #D4AF37;
 }
 
 /* Menu Button */
@@ -611,7 +618,6 @@ section.active {
   width: 100%;
   height: 100%;
   border: 0;
-  /* Removed grayscale filter for full color map */
 }
 
 .contact-details {
@@ -1016,27 +1022,20 @@ footer {
   border-top: 1px solid #222;
 }
 
-.whatsapp-order-btn {
-  display: none !important;
-}
-
 @media (max-width: 768px) {
   header {
     padding: 12px 15px;
   }
-  
+   
   /* Absolute Center Logo for Mobile */
   .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+    font-size: 18px;
   }
-  
-  .logo img {
-    height: 40px;
-  }
-  
+   
   .nav-container {
     height: 50px;
     justify-content: space-between;
@@ -1049,24 +1048,24 @@ footer {
   .header-right-tools {
     margin-left: auto;
   }
-  
+   
   .hero h1 {
     font-size: 32px;
   }
-  
+   
   .hero-tagline {
     font-size: 16px;
   }
-  
+   
   section {
     padding: 60px 15px 40px;
   }
-  
+   
   .grid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
-  
+   
   #cart {
     width: 100%;
   }
@@ -1075,7 +1074,7 @@ footer {
     padding: 10px 15px;
     padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
   }
-  
+   
   .cart-footer .btn {
     padding: 10px 16px;
     font-size: 14px;
@@ -1108,12 +1107,6 @@ footer {
   .cart-item-name { font-size: 13px; }
   .cart-item-price { font-size: 13px !important; }
   .summary-row { font-size: 12px; }
-  
-  .whatsapp-order-btn,
-  .whatsapp-button,
-  .order-whatsapp {
-    display: none !important;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1121,32 +1114,15 @@ footer {
     padding: 10px 15px;
     padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
   }
-  
+   
   .cart-footer .btn {
     padding: 10px 14px;
     font-size: 13px;
   }
-  
+   
   footer {
     font-size: 13px;
     padding: 25px 15px;
-  }
-}
-
-@media (hover: none) and (pointer: coarse) {
-  .whatsapp-order-btn,
-  .whatsapp-button,
-  .order-whatsapp,
-  .whatsapp-floating,
-  .floating-whatsapp {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-  
-  #cart .cart-footer .btn {
-    display: block !important;
   }
 }
 </style>
@@ -1166,7 +1142,7 @@ footer {
   <div class="nav-container">
     <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     <div class="logo">
-      <img src="images/logo.png" alt="SYDNEYLUXURYHIRE">
+      THURSDAY <span>LUXURY</span>
     </div>
     <div class="header-right-tools">
       <div class="cart-icon" onclick="toggleCart()">
@@ -1191,7 +1167,7 @@ footer {
     <source src="images/SLH.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
-    <h1>Experience Unmatched Luxury</h1>
+    <h1>Experience Unmatched Luxury in Nairobi</h1>
     <p class="hero-tagline">Where Elegance Meets Performance</p>
     <button class="btn" onclick="showSection('fleet')">Explore Our Fleet</button>
   </div>
@@ -1199,12 +1175,12 @@ footer {
 
 <section id="fleet">
   <button class="btn back-btn" onclick="showSection('home')">← Back to Home</button>
-  
+   
   <div class="fleet-header">
     <h2>Our Premium Fleet</h2>
-    <p class="fleet-subtitle">Select from our exclusive collection of luxury vehicles</p>
+    <p class="fleet-subtitle">Select from our exclusive collection of luxury vehicles available in Nairobi</p>
   </div>
-  
+   
   <div class="grid">
     
     <div class="card">
@@ -1396,24 +1372,24 @@ footer {
 
 <section id="about">
   <button class="btn back-btn" onclick="showSection('home')">← Back to Home</button>
-  
+   
   <div class="about-container">
-    <h2 class="about-title">About SYDNEYLUXURYHIRE</h2>
+    <h2 class="about-title">About THURSDAY LUXURY</h2>
     
     <div class="ceo-profile">
       <div class="ceo-image-wrapper">
-        <img src="images/CEO.jpg" alt="SYDNEYLUXURYHIRE CEO">
+        <img src="images/CEO.jpg" alt="THURSDAY LUXURY CEO">
       </div>
       <div class="ceo-message">
         <p class="ceo-quote">
           We started this company with one goal: to make car rentals simple and reliable. 
           No hidden fees, no complications—just well-maintained vehicles and honest service. 
-          We respect your time, your trust, and your journey. Wherever you're headed, we're here to help you get there.
+          We respect your time, your trust, and your journey through Kenya. Wherever you're headed, we're here to help you get there.
         </p>
         <div class="ceo-info">
           <p class="ceo-name">The CEO</p>
-          <p class="ceo-title">Founder of SYDNEYLUXURYHIRE</p>
-          <p class="location-info">Location: Sydney, Australia</p>
+          <p class="ceo-title">Founder of THURSDAY LUXURY</p>
+          <p class="location-info">Location: Nairobi, Kenya</p>
         </div>
       </div>
     </div>
@@ -1423,15 +1399,15 @@ footer {
 
 <section id="contact">
   <button class="btn back-btn" onclick="showSection('home')">← Back to Home</button>
-  
+   
   <div class="contact-container">
     <div class="contact-header">
       <h2>Contact Us</h2>
-      <p>Visit our showroom or get in touch for reservations.</p>
+      <p>Visit our showroom in Westlands or get in touch for reservations.</p>
     </div>
 
     <div class="map-wrapper">
-      <iframe src="https://maps.google.com/maps?q=Sydney%20CBD&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.819917806043!2d36.79972901475403!3d-1.281895699064972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10b7f631f13b%3A0x6b801e053916b3!2sWestlands%2C%20Nairobi%2C%20Kenya!5e0!3m2!1sen!2suk!4v1647895234567!5m2!1sen!2suk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="contact-details">
@@ -1440,21 +1416,21 @@ footer {
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         </div>
         <h3>Location</h3>
-        <p>Sydney CBD<br>Sydney, Australia</p>
+        <p>Westlands<br>Nairobi, Kenya</p>
       </div>
       <div class="contact-card">
         <div class="contact-icon-wrapper">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
         </div>
         <h3>Phone</h3>
-        <p>+61 412 345 678<br>Mon-Sun: 8am - 8pm</p>
+        <p>+254 712 345 678<br>Mon-Sun: 8am - 8pm</p>
       </div>
       <div class="contact-card">
         <div class="contact-icon-wrapper">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </div>
         <h3>Email</h3>
-        <p>bookings@sydneyluxuryhire.com<br>support@sydneyluxuryhire.com</p>
+        <p>bookings@thursdayluxury.ke<br>support@thursdayluxury.ke</p>
       </div>
     </div>
   </div>
@@ -1465,7 +1441,7 @@ footer {
     <h3>Your Cart 🛒</h3>
     <button class="close-cart" onclick="toggleCart()">×</button>
   </div>
-  
+   
   <div class="cart-content">
     <div class="cart-item" id="cartDatesSection" style="background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
       <div style="font-weight: 600; margin-bottom: 5px;">Rental Period</div>
@@ -1489,7 +1465,7 @@ footer {
       </div>
       </div>
   </div>
-  
+   
   <div class="cart-footer">
     <div class="cart-footer-total-group">
       <span class="cart-footer-label">Total Amount</span>
@@ -1499,7 +1475,7 @@ footer {
   </div>
 </div>
 
-<footer>2026 @sydneyluxuryhire</footer>
+<footer>2026 @thursdayluxury</footer>
 
 <script>
 // ============ GLOBAL VARIABLES ============
@@ -1517,11 +1493,11 @@ function showSection(id) {
     section.classList.remove('active');
     section.style.display = 'none';
   });
-  
+   
   const targetSection = document.getElementById(id);
   targetSection.style.display = 'block';
   targetSection.classList.add('active');
-  
+   
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1530,10 +1506,10 @@ function toggleCart() {
   const cartElement = document.getElementById('cart');
   const overlay = document.getElementById('cartOverlay');
   const body = document.body;
-  
+   
   cartElement.classList.toggle('active');
   overlay.classList.toggle('active');
-  
+   
   if (cartElement.classList.contains('active')) {
     body.style.overflow = 'hidden';
     updateCartCalculations();
@@ -1554,42 +1530,42 @@ function toggleCart() {
 function calculatePrice(carId, dailyPrice) {
   const pickupInput = document.getElementById(`${carId}-pickup`);
   const returnInput = document.getElementById(`${carId}-return`);
-  
+   
   if (!pickupInput || !returnInput) return null;
-  
+   
   const pickup = pickupInput.value;
   const returnDate = returnInput.value;
-  
+   
   if (!pickup || !returnDate) return null;
-  
+   
   const pickupDate = new Date(pickup);
   const returnDateObj = new Date(returnDate);
-  
+   
   if (returnDateObj <= pickupDate) {
     document.getElementById(`${carId}-days`).textContent = 'Return must be after pickup';
     document.getElementById(`${carId}-total`).textContent = '';
     return null;
   }
-  
+   
   const timeDiff = returnDateObj.getTime() - pickupDate.getTime();
   const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
   const totalPrice = daysDiff * dailyPrice;
-  
+   
   document.getElementById(`${carId}-days`).textContent = `${daysDiff} day${daysDiff !== 1 ? 's' : ''}`;
   document.getElementById(`${carId}-total`).textContent = `$${totalPrice.toLocaleString()}`;
-  
+   
   return { days: daysDiff, total: totalPrice, pickup, returnDate };
 }
 
 // ============ ADD TO CART ============
 function addToCart(carName, dailyPrice, carId) {
   const priceData = calculatePrice(carId, dailyPrice);
-  
+   
   if (!priceData) {
     showNotification('Please select valid rental dates first');
     return;
   }
-  
+   
   cart.push({
     name: carName,
     dailyPrice: dailyPrice,
@@ -1599,11 +1575,11 @@ function addToCart(carName, dailyPrice, carId) {
     total: priceData.total,
     id: Date.now() + Math.random()
   });
-  
+   
   showNotification(`✓ Added ${carName} for ${priceData.days} days`);
   document.querySelector('.cart-icon').classList.add('glow');
   setTimeout(() => document.querySelector('.cart-icon').classList.remove('glow'), 1500);
-  
+   
   renderCart();
   updateCartCalculations();
 }
@@ -1619,12 +1595,12 @@ function removeItem(index) {
 function renderCart() {
   document.getElementById('count').textContent = cart.length;
   const itemsDiv = document.getElementById('items');
-  
+   
   if (cart.length === 0) {
     itemsDiv.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
     return;
   }
-  
+   
   let html = '';
   cart.forEach((item, index) => {
     html += `
@@ -1648,19 +1624,19 @@ function renderCart() {
 function updateCartCalculations() {
   let subtotal = 0;
   let totalDays = 0;
-  
+   
   cart.forEach(item => {
     subtotal += item.total;
     if (item.days > totalDays) totalDays = item.days;
   });
-  
+   
   const insurance = Math.round(subtotal * 0.05);
   const total = subtotal + insurance;
-  
+   
   document.getElementById('cartSubtotal').textContent = `$${subtotal.toLocaleString()}`;
   document.getElementById('cartDays').textContent = `${totalDays} day${totalDays !== 1 ? 's' : ''}`;
   document.getElementById('cartInsurance').textContent = `$${insurance.toLocaleString()}`;
-  
+   
   // UPDATE FOOTER TOTAL
   document.getElementById('cartFooterTotal').textContent = `$${total.toLocaleString()}`;
 }
@@ -1676,8 +1652,8 @@ function showNotification(message) {
 // ============ WHATSAPP ORDER ============
 function order() {
   if (!cart.length) return;
-  const phoneNumber = '61412345678'; // Updated to Generic AU Number
-  let message = `Hello SYDNEYLUXURYHIRE,%0A%0AI want to rent:%0A%0A`;
+  const phoneNumber = '254712345678'; // Kenyan Number format
+  let message = `Hello THURSDAY LUXURY,%0A%0AI want to rent:%0A%0A`;
   cart.forEach((item, index) => {
     message += `${index + 1}. ${item.name}%0A    Dates: ${item.pickup} to ${item.returnDate}%0A    Price: $${item.total.toLocaleString()}%0A%0A`;
   });
@@ -1689,7 +1665,7 @@ function slide(carId, direction) {
   const card = document.querySelector(`.card:has(#${carId}-pickup)`);
   const imgs = card.querySelectorAll('.slider img');
   let activeIndex = Array.from(imgs).findIndex(img => img.classList.contains('active'));
-  
+   
   imgs[activeIndex].classList.remove('active');
   let newIndex = (activeIndex + direction + imgs.length) % imgs.length;
   imgs[newIndex].classList.add('active');
@@ -1714,7 +1690,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.querySelector(`.card:has(#${id}-pickup)`);
     if (card) updateIndicators(id, card.querySelectorAll('.slider img').length, 0);
   });
-  
+   
   // Set minimum date to today for date inputs
   const today = new Date().toISOString().split('T')[0];
   document.querySelectorAll('input[type="date"]').forEach(input => {
